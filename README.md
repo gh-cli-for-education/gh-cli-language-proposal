@@ -1,24 +1,5 @@
 # Design and implement a language (a DSL) built on top of GitHub cli (gh) to easy the interaction with github
 
-## https://github.com/cli/go-gh
-
-Go library for the GitHub CLI.
-go-gh is a collection of Go modules to make authoring GitHub CLI extensions easier.
-
-## https://pkg.go.dev/github.com/github/gh-cli
-
-gh - The GitHub CLI tool
-
-The #ce-cli team is working on a publicly available CLI tool to reduce the friction between GitHub and one's local machine for people who use the command line primarily to interact with Git and GitHub. 
-
-https://github.com/github/releases/issues/659
-
-This tool is an endeavor separate from github/hub, which acts as a proxy to git, 
-since our aim is to reimagine from scratch the kind of command line interface to GitHub that 
-would serve our users' interests best
-
-https://github.com/cli/cli
-
 ## ChatGPT
 
 ### Q
@@ -157,3 +138,26 @@ Assumes gh-extension [org-teams](https://github.com/gh-cli-for-education/gh-org-
 )
 ```
 
+
+## References
+
+
+### gh - The GitHub CLI tool
+
+See https://github.com/cli/cli
+
+See also https://pkg.go.dev/github.com/github/gh-cli
+
+The GitHub cli team is working on a publicly available CLI tool to reduce the friction between GitHub and one's local machine for people who use the command line primarily to interact with Git and GitHub. 
+
+See https://github.com/github/releases/issues/659
+
+This tool is an endeavor separate from github/hub, which acts as a proxy to git, 
+since our aim is to reimagine from scratch the kind of command line interface to GitHub that 
+would serve our users' interests best
+
+### https://github.com/cli/go-gh
+
+Go library for the GitHub CLI.
+
+go-gh is a collection of Go modules to make authoring GitHub CLI extensions easier.
