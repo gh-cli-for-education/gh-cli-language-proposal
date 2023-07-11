@@ -2,11 +2,11 @@
 
 ## ChatGPT Proposal
 
-### Q
+### Q1
 
 Can you design a language (a DSL) on top of GitHub cli (gh) to easy the interaction with github?
 
-### A
+### A1
 
 Certainly! I can help you design a Domain-Specific Language (DSL) on top of the GitHub CLI (gh) to simplify interactions with GitHub. The DSL will provide a more intuitive and concise syntax for common GitHub operations. Here's a basic outline of how you can design the DSL:
 
@@ -62,11 +62,11 @@ or libraries to simplify the DSL implementation process.
 Remember to refer to the official documentation of gh and explore its capabilities 
 to ensure you leverage its full potential within your DSL.
 
-### Q
+### Q2
 
 Can you give me an example of how to express in such a DSL something like "print the name of the github organizations I belong to" 
 
-### A
+### A2
 
 Certainly! Here's an example of how you can express the task "print the name of the GitHub organizations I belong to" using a DSL on top of the GitHub CLI (gh):
 
