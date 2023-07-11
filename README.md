@@ -1,6 +1,6 @@
 # Design and implement a language (a DSL) built on top of GitHub cli (gh) to easy the interaction with github
 
-## ChatGPT
+## ChatGPT Proposal
 
 ### Q
 
