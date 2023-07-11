@@ -99,7 +99,7 @@ Please note that the above example is a simplified representation of the DSL com
 
 ### Example File get-orgs.gh
 
-This is a "list my orgs" example:
+This is a "list my orgs" example that maps directly to the gh `api` command:
 
 ```ruby
 def(myOrgs, fun(
