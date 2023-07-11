@@ -95,49 +95,48 @@ To execute the DSL command, you would run the corresponding DSL interpreter or c
 
 Please note that the above example is a simplified representation of the DSL command and its implementation. Depending on the specific DSL framework or language you choose, the syntax and implementation details may vary.
 
-## Extending Egg with github gh DSL
+## Proposal for PL  students: Extending Egg with github gh DSL
 
 ### Example File get-orgs.gh
 
+This is a "list my orgs" example:
+
 ```ruby
 def(myOrgs, fun(
-  ( # print the github organizations for the user
-      def(orgs, api(
-       paginate: true,
-       route: "/users/mememberships/orgs",
-       jq: jq(`
-            [
-              .[].organization
-              | { name: .login, url: .url  }
-            ]`
-          )
-        )
-      ),
-      orgs.forEach(fun(o) {
-        print(`name: ${o.name}, url: ${o.url})
-      })
-  )
-)
+    do( # print the github organizations for the user
+        def(orgs, api(
+        paginate: true,
+        route: "/users/mememberships/orgs",
+        jq: jq(`
+              [
+                .[].organization
+                | { name: .login, url: .url  }
+              ]`
+            ) # end jq
+          ) # api 
+        ), # def
+        orgs.forEach(fun(o,
+            print(`name: ${o.name}, url: ${o.url})
+          ) # end fun
+        ) # end forEach
+    ) # end do
+  ) # end fun
+) # end def myOrgs
 ```
 
 ### Example File get-teams.gh
 
-Assumes gh-extension [org-teams](https://github.com/gh-cli-for-education/gh-org-teams) is installed as run-time library
+Assumes gh-extension [org-teams](https://github.com/gh-cli-for-education/gh-org-teams) is installed as run-time library and mapped to a function in Egg with the same name 
 
 ```js
-(
-  def(arg,process.argv[2]),
-  if(arg, 
-    def(ORG, arg), 
-    def(ORG, "ULL-ESIT-PL-2223")
-  ), 
-  def(TEAMS, org-teams(
-      {ORG: ORG),
-       print(TEAMS
-  )
+do(
+  def(teams, org-teams({ORG: ORG})),
+  =(teams, jq('.data.organization.teams.edges[].node', teams),
+  teams.forEach(fun(t) {
+    print(`name: ${t.name}, url: ${t.url})
+  })
 )
 ```
-
 
 ## References
 
