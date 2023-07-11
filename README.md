@@ -160,3 +160,7 @@ would serve our users' interests best
 Go library for the GitHub CLI.
 
 go-gh is a collection of Go modules to make authoring GitHub CLI extensions easier.
+
+### Example of "use" in Egg
+
+See [Strategy Pattern: use](https://ull-esit-pl-2122.github.io/practicas/tfa.html#strategy-pattern-use) in the PL TFA
