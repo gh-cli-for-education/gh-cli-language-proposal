@@ -1,3 +1,5 @@
+# Design and implement a language (a DSL) built on top of GitHub cli (gh) to easy the interaction with github
+
 ## https://github.com/cli/go-gh
 
 Go library for the GitHub CLI.
@@ -112,7 +114,9 @@ To execute the DSL command, you would run the corresponding DSL interpreter or c
 
 Please note that the above example is a simplified representation of the DSL command and its implementation. Depending on the specific DSL framework or language you choose, the syntax and implementation details may vary.
 
-## File get-orgs.gh
+## Extending Egg with github gh DSL
+
+### Example File get-orgs.gh
 
 ```ruby
 def(myOrgs, fun(
@@ -135,14 +139,21 @@ def(myOrgs, fun(
 )
 ```
 
-## File get-teams.gh
+### Example File get-teams.gh
+
+Assumes gh-extension [org-teams](https://github.com/gh-cli-for-education/gh-org-teams) is installed as run-time library
 
 ```js
 (
   def(arg,process.argv[2]),
-  if(arg, def(ORG, arg), def(ORG, "ULL-ESIT-PL-2223")), 
-  def(TEAMS,org-teams({ORG: ORG),
-  print(TEAMS)
+  if(arg, 
+    def(ORG, arg), 
+    def(ORG, "ULL-ESIT-PL-2223")
+  ), 
+  def(TEAMS, org-teams(
+      {ORG: ORG),
+       print(TEAMS
+  )
 )
 ```
 
