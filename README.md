@@ -135,6 +135,23 @@ catch (e) {
 */
 ```
 
+## REPL
+
+A wrap around the node REPL:
+
+```
+$ node
+let {gh, sh} = require("./github-cli.mjs")
+> gh.graphql() /* opens the github page of the graphql explorer */
+> gh.api.help()
+/* will show the help of the api command */
+> api = gh.api
+> let command = api({i: true})
+/* will ask you for each of the parameters of the api command 
+and show the resulting gh command*/
+> sh(command) // will execute the command in the shell
+```
+
 ## Proposal for PL  students: Extending Egg with github gh DSL
 
 ### Example File get-orgs.gh
