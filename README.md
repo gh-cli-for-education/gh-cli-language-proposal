@@ -95,6 +95,24 @@ To execute the DSL command, you would run the corresponding DSL interpreter or c
 
 Please note that the above example is a simplified representation of the DSL command and its implementation. Depending on the specific DSL framework or language you choose, the syntax and implementation details may vary.
 
+## Writing a npm module to wrap gh
+
+See [myorgs.mjs](myorgs.mjs)
+
+```js
+import { api } from "github-cli";
+let orgs = api({
+    paginate: true,
+    route: "/users/mememberships/orgs",
+    jq: `
+          [
+            .[].organization
+            | { name: .login, url: .url  }
+          ]`
+}) 
+orgs.forEach(o => console.log(`name: ${o.name}, url: ${o.url}`))
+```
+
 ## Proposal for PL  students: Extending Egg with github gh DSL
 
 ### Example File get-orgs.gh
@@ -122,6 +140,25 @@ def(myOrgs, fun(
     ) # end do
   ) # end fun
 ) # end def myOrgs
+```
+
+```js
+myOrgs =  fun {
+  orgs = api({
+    paginate: true,
+    route: "/users/mememberships/orgs",
+    jq: jq(`
+              [
+                .[].organization
+                | { name: .login, url: .url  }
+              ]`
+        ) // end jq
+    }) // end api 
+    orgs.forEach(fun(o) {
+      print(`name: ${o.name}, url: ${o.url})
+    })
+  } 
+} # end def myOrgs
 ```
 
 ### Example File get-teams.gh
